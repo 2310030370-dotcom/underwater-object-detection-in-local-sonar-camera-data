@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Underwater Object Detection • Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="theme-dark">
+    <div class="bg-animated"></div>
+
+    <header class="topbar glass">
+        <div class="left">
+            <div class="logo">🌊</div>
+            <div class="title">
+                <h1>Underwater Object Detection</h1>
+                <span class="badge">Demo</span>
+            </div>
+        </div>
+        <div class="right">
+            <button id="logoutBtn" class="btn btn-ghost">Logout</button>
+        </div>
+    </header>
+
+    <main class="container page">
+        <section class="hero">
+            <h2>Explore the Deep</h2>
+            <p>Upload an image or pick a sample. Then run detection to highlight fish, coral, sea turtles, coral reefs, and more.</p>
+        </section>
+
+        <section class="grid">
+            <div class="col card glass">
+                <h3>1) Choose Image</h3>
+                <div class="picker">
+                    <label class="file-drop" for="fileInput">
+                        <input id="fileInput" type="file" accept="image/*" hidden>
+                        <div class="file-drop-inner">
+                            <div class="icon">📷</div>
+                            <div>
+                                <strong>Drag & drop</strong> or click to upload an image
+                                <div class="muted">JPG, PNG — under 10MB</div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <div class="samples">
+                        <button class="chip" data-sample="https://images.unsplash.com/photo-1544551763-7ef4200b7e0d?q=80&w=1200&auto=format&fit=crop">Sample: Reef</button>
+                        <button class="chip" data-sample="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=1200&auto=format&fit=crop">Sample: Turtle</button>
+                        <button class="chip" data-sample="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?q=80&w=1200&auto=format&fit=crop">Sample: School</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col card glass">
+                <h3>2) Preview & Detect</h3>
+                <div class="stage">
+                    <canvas id="canvas" width="960" height="540" class="canvas"></canvas>
+                </div>
+                <div class="actions">
+                    <button id="detectBtn" class="btn btn-primary" disabled>Run Detection</button>
+                    <button id="clearBtn" class="btn btn-ghost" disabled>Clear</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="card glass results">
+            <div class="results-header">
+                <h3>Detections</h3>
+                <div id="stats" class="muted">No results yet</div>
+            </div>
+            <div id="resultsList" class="results-list"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>Underwater Object Detection • Interactive Demo</span>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
+
